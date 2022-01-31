@@ -1,3 +1,5 @@
+[![](https://img.shields.io/github/license/hipe4ml/hipe4ml-converter)](https://github.com/hipe4ml/hipe4ml-converter/blob/main/LICENSE)
+
 # hipe4ml-converter
 Package for conversion of machine learning models trained with hipe4ml into ONNX and tensor formats
 
