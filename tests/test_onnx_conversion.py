@@ -2,11 +2,13 @@
 Example for conversion of a hipe4ml ModelHandler to ONNX format
 """
 
+import os
 import sys
 import pandas as pd
 import numpy as np
 import xgboost as xgb
 from sklearn.model_selection import train_test_split
+from onnx import onnx_ml_pb2
 from hipe4ml.model_handler import ModelHandler
 
 sys.path.append("../hipe4ml_converter") # needed because hipe4ml-converter is not installed
@@ -24,5 +26,17 @@ model_handler = ModelHandler(model_clf, df_sgn.columns)
 model_handler.train_test_model(train_test_data, True, output_margin="raw")
 
 model_converter = H4MLConverter(model_handler)
-model_converter.convert_model_onnx(1)
-model_converter.dump_model_onnx("model.onnx")
+
+def test_convert_model_onnx():
+    """
+    Test the conversion to onnx
+    """
+    assert isinstance(model_converter.convert_model_onnx(1), onnx_ml_pb2.ModelProto)
+
+def test_dump_model_onnx():
+    """
+    Test the dump of the onnx file
+    """
+    model_converter.dump_model_onnx("model.onnx")
+    assert os.path.isfile("model.onnx")
+    os.remove("model.onnx")
