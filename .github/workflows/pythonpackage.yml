@@ -44,7 +44,7 @@ jobs:
       max-parallel: 4
       matrix:
         python-version: [3.7, 3.8, 3.9]
-        test-tool: [pytest]
+        test-tool: [pylint]
 
     steps:
       - uses: actions/checkout@v1
