@@ -22,7 +22,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install --upgrade setuptools
           pip install --upgrade numpy
-          pip install pystan==2.19.1.1
+          pip install pystan==2.18.0.0
           pip install prophet
           pip install -r requirements.txt
       - name: Test with ${{ matrix.test-tool }}
@@ -58,7 +58,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install --upgrade setuptools
           pip install --upgrade numpy
-          pip install pystan==2.19.1.1
+          pip install pystan==2.18.0.0
           pip install prophet
           pip install -r requirements.txt
       - name: Test with ${{ matrix.test-tool }}
