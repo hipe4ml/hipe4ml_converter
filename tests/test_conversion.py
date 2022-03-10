@@ -7,13 +7,14 @@ import sys
 import pandas as pd
 import numpy as np
 import xgboost as xgb
+from sklearn.model_selection import train_test_split
+from onnx import onnx_ml_pb2
 from hummingbird.ml.containers.sklearn.onnx_containers import ONNXSklearnContainerClassification
 from hummingbird.ml.containers.sklearn.pytorch_containers import PyTorchSklearnContainerClassification
-from sklearn.model_selection import train_test_split
 from hipe4ml.model_handler import ModelHandler
 
 sys.path.append("../hipe4ml_converter") # needed because hipe4ml-converter is not installed
-from hipe4ml_converter.h4ml_converter import H4MLConverter #pylint: disable=wrong-import-position,import-error
+from hipe4ml_converter.h4ml_converter import H4MLConverter # pylint: disable=wrong-import-position,import-error
 
 df_sgn = pd.DataFrame(np.random.randn(100, 4), columns=list("ABCD"))
 df_bkg = pd.DataFrame(3 * np.random.randn(100, 4) + 2, columns=list("ABCD"))
@@ -27,6 +28,20 @@ model_handler = ModelHandler(model_clf, df_sgn.columns)
 model_handler.train_test_model(train_test_data, True, output_margin="raw")
 
 model_converter = H4MLConverter(model_handler)
+
+def test_convert_model_onnx():
+    """
+    Test the conversion to onnx
+    """
+    assert isinstance(model_converter.convert_model_onnx(1), onnx_ml_pb2.ModelProto)
+
+def test_dump_model_onnx():
+    """
+    Test the dump of the onnx file
+    """
+    model_converter.dump_model_onnx("model.onnx")
+    assert os.path.isfile("model.onnx")
+    os.remove("model.onnx")
 
 def test_convert_model_hummingbird_onnx():
     """
