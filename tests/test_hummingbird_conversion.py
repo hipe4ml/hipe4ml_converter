@@ -41,6 +41,7 @@ def test_dump_model_hummingbird_onnx():
     model_converter.dump_model_hummingbird("model_onnx")
     assert os.path.isfile("model_onnx.zip")
     os.remove("model_onnx.zip")
+    os._exit(0)
 
 def test_convert_model_hummingbird_pytorch():
     """
@@ -55,6 +56,7 @@ def test_dump_model_hummingbird_pytorch():
     model_converter.dump_model_hummingbird("model_pytorch")
     assert os.path.isfile("model_pytorch.zip")
     os.remove("model_pytorch.zip")
+    os._exit(0)
 
 def test_convert_model_hummingbird_torch():
     """
@@ -69,3 +71,4 @@ def test_dump_model_hummingbird_torch():
     model_converter.dump_model_hummingbird("model_torch")
     assert os.path.isfile("model_torch.zip")
     os.remove("model_torch.zip")
+    os._exit(0)
