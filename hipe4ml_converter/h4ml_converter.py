@@ -6,7 +6,7 @@ stored into a hipe4ml ModelHandler to different formats
 import numpy as np
 import onnxmltools
 from onnxconverter_common.data_types import FloatTensorType
-# from hummingbird import ml
+from hummingbird import ml
 
 class H4MLConverter:
     """

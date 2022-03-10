@@ -13,7 +13,7 @@ from sklearn.model_selection import train_test_split
 from hipe4ml.model_handler import ModelHandler
 
 sys.path.append("../hipe4ml_converter") # needed because hipe4ml-converter is not installed
-from h4ml_converter import H4MLConverter #pylint: disable=wrong-import-position,import-error
+from hipe4ml_converter.h4ml_converter import H4MLConverter #pylint: disable=wrong-import-position,import-error
 
 df_sgn = pd.DataFrame(np.random.randn(100, 4), columns=list("ABCD"))
 df_bkg = pd.DataFrame(3 * np.random.randn(100, 4) + 2, columns=list("ABCD"))
@@ -41,7 +41,6 @@ def test_dump_model_hummingbird_onnx():
     model_converter.dump_model_hummingbird("model_onnx")
     assert os.path.isfile("model_onnx.zip")
     os.remove("model_onnx.zip")
-    os._exit(0)
 
 def test_convert_model_hummingbird_pytorch():
     """
@@ -56,7 +55,6 @@ def test_dump_model_hummingbird_pytorch():
     model_converter.dump_model_hummingbird("model_pytorch")
     assert os.path.isfile("model_pytorch.zip")
     os.remove("model_pytorch.zip")
-    os._exit(0)
 
 def test_convert_model_hummingbird_torch():
     """
@@ -71,4 +69,3 @@ def test_dump_model_hummingbird_torch():
     model_converter.dump_model_hummingbird("model_torch")
     assert os.path.isfile("model_torch.zip")
     os.remove("model_torch.zip")
-    os._exit(0)
