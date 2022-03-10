@@ -13,7 +13,7 @@ from hummingbird.ml.containers.sklearn.onnx_containers import ONNXSklearnContain
 from hummingbird.ml.containers.sklearn.pytorch_containers import PyTorchSklearnContainerClassification
 from hipe4ml.model_handler import ModelHandler
 
-sys.path.insert(0, "../hipe4ml_converter") # needed because hipe4ml-converter is not installed
+sys.path.append("../") # needed because hipe4ml-converter is not installed
 from hipe4ml_converter.h4ml_converter import H4MLConverter # pylint: disable=wrong-import-position,import-error
 
 df_sgn = pd.DataFrame(np.random.randn(100, 4), columns=list("ABCD"))
