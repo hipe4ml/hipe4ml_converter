@@ -1,7 +1,7 @@
 """
 Minimal example to run the package methods
 """
-import os
+import sys
 import pandas as pd
 import xgboost as xgb
 from sklearn import datasets
@@ -43,5 +43,5 @@ MODEL_CONVERTER.dump_model_hummingbird("model_hummingbird_onnx")
 # creates a tensorial pytorch model via hummingbird
 MODEL_CONVERTER.convert_model_hummingbird("torch")
 MODEL_CONVERTER.dump_model_hummingbird("model_hummingbird_torch")
-os._exit(0)
+sys.exit(0)
 # ---------------------------------------------
