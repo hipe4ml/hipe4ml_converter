@@ -1,5 +1,4 @@
 [![](https://img.shields.io/github/license/hipe4ml/hipe4ml-converter)](https://github.com/hipe4ml/hipe4ml-converter/blob/main/LICENSE)
-![Test package](https://github.com/hipe4ml/hipe4ml_converter/actions/workflows/pythonpackage.yml/badge.svg)
 [![](https://img.shields.io/pypi/pyversions/hipe4ml_converter.svg?longCache=True)](https://pypi.org/project/hipe4ml_converter/)
 [![](https://img.shields.io/pypi/v/hipe4ml_converter.svg?maxAge=3600)](https://pypi.org/project/hipe4ml_converter/)
 
