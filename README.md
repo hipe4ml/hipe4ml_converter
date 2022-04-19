@@ -2,7 +2,7 @@
 [![](https://img.shields.io/pypi/pyversions/hipe4ml_converter.svg?longCache=True)](https://pypi.org/project/hipe4ml_converter/)
 [![](https://img.shields.io/pypi/v/hipe4ml_converter.svg?maxAge=3600)](https://pypi.org/project/hipe4ml_converter/)
 
-# hipe4ml-converter
+# hipe4ml_converter
 Package for conversion of machine learning models trained with hipe4ml into ONNX and tensor formats
 
 # Introduction
