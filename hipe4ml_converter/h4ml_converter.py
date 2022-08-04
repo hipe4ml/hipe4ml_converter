@@ -8,6 +8,7 @@ import onnxmltools
 from onnxconverter_common.data_types import FloatTensorType
 from hummingbird import ml
 
+
 class H4MLConverter:
     """
     class used for wrapping the methods used to convert a model
@@ -24,7 +25,7 @@ class H4MLConverter:
         self.model_onnx = None
         self.model_hummingbird = None
 
-    def convert_model_onnx(self, input_shape):
+    def convert_model_onnx(self, input_shape, target_opset=13):
         """
         Convert the trained model to onnx format and save it
 
@@ -33,7 +34,10 @@ class H4MLConverter:
         input_shape: int
             The dimension of the sample for the application.
             For more info see https://github.com/onnx/onnxmltools
-
+        target_opset: int
+            number, for example, 7 for ONNX 1.2, and 8 for ONNX 1.3
+            default is 13 for ONNX 1.7
+            For more info see https://github.com/onnx/onnxmltools
         Returns
         -----------------------------------------------------
         model_onnx: onnxtools ModelProto
@@ -48,7 +52,8 @@ class H4MLConverter:
         model.get_booster().feature_names = feature_names
 
         self.model_onnx = onnxmltools.convert.convert_xgboost(
-            model, initial_types=[("input", FloatTensorType(shape=[input_shape, n_features]))]
+            model, target_opset=target_opset,
+            initial_types=[("input", FloatTensorType(shape=[input_shape, n_features]))]
         )
 
         return self.model_onnx
@@ -126,4 +131,4 @@ class H4MLConverter:
             self.model_hummingbird.save(filename)
             print(f"File {filename} saved")
         else:
-            print("File not saved: the model should be first converted with convert_model_onnx")
+            print("File not saved: the model should be first converted with convert_model_hummingbird")
