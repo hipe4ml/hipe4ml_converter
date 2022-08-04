@@ -35,9 +35,8 @@ class H4MLConverter:
             The dimension of the sample for the application.
             For more info see https://github.com/onnx/onnxmltools
         target_opset: int
-            number, for example, 7 for ONNX 1.2, and 8 for ONNX 1.3
-            default is 13 for ONNX 1.7
-            For more info see https://github.com/onnx/onnxmltools
+            ONNX opset version. The default is 13 supported by ONNX>=1.8 and ONNX Runtime>=1.6.
+            For more info see https://onnxruntime.ai/docs/reference/compatibility#onnx-opset-support
         Returns
         -----------------------------------------------------
         model_onnx: onnxtools ModelProto
