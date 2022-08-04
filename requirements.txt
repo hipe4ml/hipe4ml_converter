@@ -1,6 +1,7 @@
 psutil
 dutil
 prophet==1.0.1
+numpy>=1.15
 hipe4ml>=0.0.14
 torch>=1.6.0
 scikit-learn>=0.21.3

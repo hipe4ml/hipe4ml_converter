@@ -88,7 +88,7 @@ SETUP = Setup(
         "ipython>=7.16.1", "jedi==0.17.2", "torch>=1.6.0",
         "scikit-learn>=0.21.3", "onnxconverter-common>=1.9.0",
         "skl2onnx>=1.12.0", "onnxmltools>=1.11.1", "onnxruntime>=1.12.0",
-        "lightgbm>=2.2", "hummingbird_ml[extra]==0.4.2"
+        "lightgbm>=2.2", "hummingbird_ml[extra]==0.4.2", "numpy>=1.15"
     ],
     python_requires=">=3.7",
 
