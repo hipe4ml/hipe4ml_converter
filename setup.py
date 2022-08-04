@@ -86,7 +86,7 @@ SETUP = Setup(
     install_requires=[
         "psutil", "dutil", "prophet==1.0.1", "pyarrow>=5.0.0", "hipe4ml>=0.0.14",
         "ipython>=7.16.1", "jedi==0.17.2", "torch>=1.6.0",
-        "scikit-learn>=0.21.3", "onnxconverter-common>=1.9.0",
+        "scikit-learn>=0.21.3", "onnxconverter-common>=1.6.0", "onnxconverter-common<=1.11.0",
         "skl2onnx>=1.12.0", "onnxmltools>=1.11.1", "onnxruntime>=1.12.0",
         "lightgbm>=2.2", "hummingbird_ml[extra]==0.4.2"
     ],
