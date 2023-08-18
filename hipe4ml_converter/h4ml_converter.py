@@ -46,9 +46,7 @@ class H4MLConverter:
 
         training_columns = self.model_handler.get_training_columns()
         n_features = len(training_columns)
-        feature_names = [f"f{i_feat}" for i_feat in range(n_features)]
         model = self.model_handler.get_original_model()
-        model.get_booster().feature_names = feature_names
 
         self.model_onnx = onnxmltools.convert.convert_xgboost(
             model, target_opset=target_opset,
