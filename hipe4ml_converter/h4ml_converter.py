@@ -35,7 +35,7 @@ class H4MLConverter:
             The dimension of the sample for the application.
             For more info see https://github.com/onnx/onnxmltools
         target_opset: int
-            ONNX opset version. The default is 13 supported by ONNX>=1.8 and ONNX Runtime>=1.6.
+            ONNX opset version. The default is 17 supported by ONNX>=1.8 and ONNX Runtime>=1.6.
             For more info see https://onnxruntime.ai/docs/reference/compatibility#onnx-opset-support
         Returns
         -----------------------------------------------------
@@ -47,11 +47,16 @@ class H4MLConverter:
         training_columns = self.model_handler.get_training_columns()
         n_features = len(training_columns)
         model = self.model_handler.get_original_model()
+        feature_names = [f"f{i_feat}" for i_feat in range(n_features)]
+        model.get_booster().feature_names = feature_names
 
         self.model_onnx = onnxmltools.convert.convert_xgboost(
             model, target_opset=target_opset,
             initial_types=[("input", FloatTensorType(shape=[input_shape, n_features]))]
         )
+
+        # restore original names
+        model.get_booster().feature_names = training_columns
 
         return self.model_onnx
 
@@ -94,6 +99,9 @@ class H4MLConverter:
             self.model_hummingbird = ml.convert(model, backend, x_test)
         else:
             self.model_hummingbird = ml.convert(model, backend, extra_config={"n_features":n_features})
+
+        # restore original names
+        model.get_booster().feature_names = training_columns
 
         return self.model_hummingbird
 
