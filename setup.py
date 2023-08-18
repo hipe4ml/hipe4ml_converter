@@ -68,7 +68,6 @@ SETUP = Setup(
         "Intended Audience :: Developers",
         "Topic :: Scientific/Engineering :: Physics",
         "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
-        "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3.9",
         "Programming Language :: Python :: 3.10",
@@ -92,7 +91,7 @@ SETUP = Setup(
         "skl2onnx>=1.12.0", "onnxmltools>=1.6.0,<=1.11.0", "onnxruntime>=1.12.0",
         "lightgbm>=2.2,<=3.3.5", "hummingbird_ml[extra]>=0.4.9"
     ],
-    python_requires=">=3.7",
+    python_requires=">=3.8",
 
     # List additional groups of dependencies here (e.g. development dependencies). You can install
     # these using the following syntax, for example:
