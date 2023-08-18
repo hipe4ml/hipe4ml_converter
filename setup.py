@@ -89,7 +89,7 @@ SETUP = Setup(
         "psutil", "dutil", "prophet>=1.1", "pyarrow>=5.0.0", "hipe4ml>=0.0.14",
         "ipython>=7.16.1", "jedi==0.17.2", "torch>=1.7.0",
         "scikit-learn>=0.21.3", "onnxconverter-common>=1.13.0",
-        "skl2onnx>=1.12.0", "onnxmltools>=1.6.0,<=1.11.0", "onnxruntime>=1.15.1",
+        "skl2onnx>=1.12.0", "onnxmltools>=1.6.0,<=1.11.0", "onnxruntime>=1.12.0",
         "lightgbm>=2.2,<=3.3.5", "hummingbird_ml[extra]>=0.4.9"
     ],
     python_requires=">=3.7",
