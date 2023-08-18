@@ -7,7 +7,7 @@ import pandas as pd
 import numpy as np
 import xgboost as xgb
 from sklearn.model_selection import train_test_split
-import onnx
+from onnx import onnx_ml_pb2
 from hummingbird.ml.containers.sklearn.onnx_containers import ONNXSklearnContainerClassification
 from hummingbird.ml.containers.sklearn.pytorch_containers import PyTorchSklearnContainerClassification
 from hipe4ml.model_handler import ModelHandler
@@ -34,7 +34,8 @@ def test_convert_model_onnx():
     """
     Test the conversion to onnx
     """
-    assert isinstance(model_converter.convert_model_onnx(1), onnx.ModelProto)
+    assert isinstance(model_converter.convert_model_onnx(1),
+                      onnx_ml_pb2.ModelProto) # pylint: disable=no-member
 
 
 def test_dump_model_onnx():
