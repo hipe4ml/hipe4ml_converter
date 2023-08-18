@@ -35,7 +35,7 @@ def test_convert_model_onnx():
     Test the conversion to onnx
     """
     assert isinstance(model_converter.convert_model_onnx(1),
-                      onnx_ml_pb2.ModelProto)
+                      onnx_ml_pb2.ModelProto) # pylint: disable=no-member
 
 
 def test_dump_model_onnx():

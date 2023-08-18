@@ -46,14 +46,17 @@ class H4MLConverter:
 
         training_columns = self.model_handler.get_training_columns()
         n_features = len(training_columns)
-        feature_names = [f"f{i_feat}" for i_feat in range(n_features)]
         model = self.model_handler.get_original_model()
+        feature_names = [f"f{i_feat}" for i_feat in range(n_features)]
         model.get_booster().feature_names = feature_names
 
         self.model_onnx = onnxmltools.convert.convert_xgboost(
             model, target_opset=target_opset,
             initial_types=[("input", FloatTensorType(shape=[input_shape, n_features]))]
         )
+
+        # restore original names
+        model.get_booster().feature_names = list(training_columns)
 
         return self.model_onnx
 
@@ -96,6 +99,9 @@ class H4MLConverter:
             self.model_hummingbird = ml.convert(model, backend, x_test)
         else:
             self.model_hummingbird = ml.convert(model, backend, extra_config={"n_features":n_features})
+
+        # restore original names
+        model.get_booster().feature_names = list(training_columns)
 
         return self.model_hummingbird
 
