@@ -70,8 +70,7 @@ SETUP = Setup(
         "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
         "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3.9",
-        "Programming Language :: Python :: 3.10",
-        "Programming Language :: Python :: 3.11"
+        "Programming Language :: Python :: 3.10"
     ],
 
     # What does your project relate to?
@@ -85,7 +84,7 @@ SETUP = Setup(
     # installed. For an analysis of "install_requires" vs pip's requirements files see:
     # https://packaging.python.org/en/latest/requirements.html
     install_requires=[
-        "psutil", "dutil", "prophet>=1.1", "pyarrow>=5.0.0", "hipe4ml>=0.0.14",
+        "psutil", "dutil", "pyarrow>=5.0.0", "hipe4ml>=0.0.15",
         "ipython>=7.16.1", "jedi==0.17.2", "torch>=1.7.0",
         "scikit-learn>=0.21.3", "onnxconverter-common>=1.13.0",
         "skl2onnx>=1.12.0", "onnxmltools>=1.6.0,<=1.11.0", "onnxruntime>=1.12.0",
