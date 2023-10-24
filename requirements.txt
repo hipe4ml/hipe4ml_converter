@@ -1,7 +1,6 @@
 psutil
 dutil
-prophet>=1.1
-hipe4ml>=0.0.14
+hipe4ml>=0.0.15
 torch>=1.7.0
 scikit-learn>=0.21.3
 onnxconverter-common>=1.13.0
