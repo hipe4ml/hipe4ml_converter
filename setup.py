@@ -55,7 +55,7 @@ SETUP = Setup(
     name="hipe4ml_converter",
 
     # LAST-TAG is a placeholder. Automatically replaced at deploy time with the right tag
-    version="0.0.5",
+    version="0.0.6",
     description="Minimal heavy ion physics environment for Machine Learning",
     url="https://github.com/hipe4ml/hipe4ml_converter",
     author="hipe4ml-developers",
