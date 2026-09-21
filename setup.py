@@ -55,7 +55,7 @@ SETUP = Setup(
     name="hipe4ml_converter",
 
     # LAST-TAG is a placeholder. Automatically replaced at deploy time with the right tag
-    version="0.0.7",
+    version="0.0.8",
     description="Minimal heavy ion physics environment for Machine Learning",
     url="https://github.com/hipe4ml/hipe4ml_converter",
     author="hipe4ml-developers",
@@ -89,7 +89,7 @@ SETUP = Setup(
         "scikit-learn>=0.21.3", "onnxconverter-common>=1.13.0",
         "numpy<2.0.0,>=1.23.5", "skl2onnx>=1.12.0", "onnxmltools>=1.6.0,<=1.12.0",
         "onnxruntime>=1.12.0,<=1.18.0",
-        "lightgbm>=2.2", "hummingbird_ml[extra]>=0.4.11"
+        "lightgbm>=2.2", "hummingbird_ml[extra]>=0.4.11", "onnx<=1.13.1"
     ],
     python_requires=">=3.10",
 
