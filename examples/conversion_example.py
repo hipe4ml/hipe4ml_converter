@@ -45,20 +45,6 @@ OUTPUT_ONNX = ONNX_SESSION.run(None, {"input": TEST_SET_FLOAT})
 np.testing.assert_almost_equal(np.transpose(OUTPUT_ONNX[1])[1], Y_PRED, decimal=7)
 MODEL_CONVERTER.dump_model_onnx("model_onnx.onnx")
 
-# creates a tensorial ONNX model via hummingbird that can process a N-dimension dataset at a time and saves it to file
-MODEL_ONNX_HUMMINGBIRD = MODEL_CONVERTER.convert_model_hummingbird("onnx", len(TEST_SET_FLOAT))
-OUTPUT_ONNX_HUMMINGBIRD = MODEL_ONNX_HUMMINGBIRD.predict_proba(DATA[2].to_numpy())
-# check that the two outputs are equal up to the 7th digit
-np.testing.assert_almost_equal(np.transpose(OUTPUT_ONNX_HUMMINGBIRD)[1], Y_PRED, decimal=7)
-MODEL_CONVERTER.dump_model_hummingbird("model_hummingbird_onnx")
-
-# creates a tensorial pytorch model via hummingbird
-MODEL_TORCH_HUMMINGBIRD = MODEL_CONVERTER.convert_model_hummingbird("torch")
-OUTPUT_TORCH_HUMMINGBIRD = MODEL_TORCH_HUMMINGBIRD.predict_proba(DATA[2].to_numpy())
-# check that the two outputs are equal up to the 7th digit
-np.testing.assert_almost_equal(np.transpose(OUTPUT_TORCH_HUMMINGBIRD)[1], Y_PRED, decimal=7)
-MODEL_CONVERTER.dump_model_hummingbird("model_hummingbird_torch")
-
 # force exit
 os._exit(0) #pylint: disable=protected-access
 
