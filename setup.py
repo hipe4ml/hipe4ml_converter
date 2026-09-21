@@ -87,9 +87,9 @@ SETUP = Setup(
         "psutil", "dutil", "pyarrow>=5.0.0", "hipe4ml>=0.0.18",
         "ipython>=7.16.1", "jedi==0.17.2", "torch>=1.7.0",
         "scikit-learn>=0.21.3", "onnxconverter-common>=1.13.0",
-        "numpy<2.0.0,>=1.23.5", "skl2onnx>=1.12.0", "onnxmltools>=1.6.0,<=1.12.0",
+        "numpy<2.0.0,>=1.23.5", "skl2onnx>=1.12.0", "onnxmltools>=1.13.0",
         "onnxruntime>=1.12.0,<=1.18.0",
-        "lightgbm>=2.2", "hummingbird_ml[extra]>=0.4.11", "onnx<=1.13.1", "xgboost<2.0"
+        "lightgbm>=2.2", "onnx<=1.13.1", "xgboost<2.0"
     ],
     python_requires=">=3.10",
 
@@ -99,7 +99,7 @@ SETUP = Setup(
     extras_require={
         "dev": [
             "pylint>=2.6.2", "flake8>=3.8.4", "pytest>=6.2.2", "twine>=3.3.0",
-            "setuptools>=53.0.0,<81", "wheel>=0.36.2"
+            "setuptools>=53.0.0", "wheel>=0.36.2"
         ]
     },
 
