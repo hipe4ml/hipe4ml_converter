@@ -48,9 +48,9 @@ class H4MLConverter:
 
         self.model_onnx = onnxmltools.convert.convert_xgboost(
             model, target_opset=target_opset,
-            initial_types=[("input", FloatTensorType([None, n_features]))]
+            initial_types=[("input", FloatTensorType([input_shape, n_features]))]
         )
-    
+
         # restore original names
         model.get_booster().feature_names = list(training_columns)
 
