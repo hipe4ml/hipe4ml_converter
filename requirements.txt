@@ -4,8 +4,9 @@ numpy<2.0.0,>=1.23.5
 hipe4ml>=0.0.18
 torch>1.7.0
 scikit-learn>=0.21.3
-skl2onnx>=1.20.0
-onnxmltools>=1.16.0
+skl2onnx>=1.20.0,<2
 onnxruntime>=1.18.0
 xgboost<2.0
 lightgbm>=2.2
+onnxconverter-common>=1.16.0,<2
+onnxmltools>=1.16.0,<2

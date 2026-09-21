@@ -87,8 +87,8 @@ SETUP = Setup(
         "psutil", "dutil", "pyarrow>=5.0.0", "hipe4ml>=0.0.18",
         "ipython>=7.16.1", "jedi==0.17.2", "torch>=1.7.0",
         "scikit-learn>=0.21.3",
-        "numpy<2.0.0,>=1.23.5", "skl2onnx>=1.20.0", "onnxmltools>=1.16.0",
-        "onnxruntime>=1.18.0", "lightgbm>=2.2", "xgboost<2.0"
+        "numpy<2.0.0,>=1.23.5", "skl2onnx>=1.20.0,<2", "onnxmltools>=1.16.0,<2",
+        "onnxruntime>=1.18.0,<2", "lightgbm>=2.2", "xgboost<2.0", "onnxconverter-common>=1.16.0,<2"
     ],
     python_requires=">=3.10",
 
