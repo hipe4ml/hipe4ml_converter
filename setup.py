@@ -88,7 +88,7 @@ SETUP = Setup(
         "ipython>=7.16.1", "jedi==0.17.2", "torch>=1.7.0",
         "scikit-learn>=0.21.3",
         "numpy<2.0.0,>=1.23.5", "skl2onnx>=1.20.0,<2", "onnxmltools>=1.16.0,<2",
-        "onnxruntime>=1.18.0,<2", "lightgbm>=2.2", "xgboost<2.0", "onnxconverter-common>=1.16.0,<2"
+        "onnxruntime>=1.18.0,<2", "lightgbm>=2.2", "xgboost<2.0"
     ],
     python_requires=">=3.10",
 

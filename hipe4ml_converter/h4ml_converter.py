@@ -3,10 +3,8 @@ Module containing the class used for wrapping the methods used to convert a mode
 stored into a hipe4ml ModelHandler to different formats
 """
 
-import numpy as np
 import onnxmltools
-from onnxconverter_common.data_types import FloatTensorType
-
+from onnxmltools.convert.common.data_types import FloatTensorType
 
 class H4MLConverter:
     """
@@ -50,9 +48,9 @@ class H4MLConverter:
 
         self.model_onnx = onnxmltools.convert.convert_xgboost(
             model, target_opset=target_opset,
-            initial_types=[("input", FloatTensorType(shape=[input_shape, n_features]))]
+            initial_types=[("input", FloatTensorType([None, n_features]))]
         )
-
+    
         # restore original names
         model.get_booster().feature_names = list(training_columns)
 
