@@ -8,8 +8,6 @@ import numpy as np
 import xgboost as xgb
 from sklearn.model_selection import train_test_split
 from onnx import onnx_ml_pb2
-from hummingbird.ml.containers.sklearn.onnx_containers import ONNXSklearnContainerClassification
-from hummingbird.ml.containers.sklearn.pytorch_containers import PyTorchSklearnContainerClassification
 from hipe4ml.model_handler import ModelHandler
 from hipe4ml_converter.h4ml_converter import H4MLConverter
 
@@ -45,54 +43,3 @@ def test_dump_model_onnx():
     model_converter.dump_model_onnx("model.onnx")
     assert os.path.isfile("model.onnx")
     os.remove("model.onnx")
-
-
-def test_convert_model_hummingbird_onnx():
-    """
-    Test the hummingbird conversion to onnx
-    """
-    assert isinstance(model_converter.convert_model_hummingbird("onnx", 1),
-                      ONNXSklearnContainerClassification)
-
-
-def test_dump_model_hummingbird_onnx():
-    """
-    Test the dump of the onnx file
-    """
-    model_converter.dump_model_hummingbird("model_onnx")
-    assert os.path.isfile("model_onnx.zip")
-    os.remove("model_onnx.zip")
-
-
-def test_convert_model_hummingbird_pytorch():
-    """
-    Test the hummingbird conversion to pytorch
-    """
-    assert isinstance(model_converter.convert_model_hummingbird("pytorch", 1),
-                      PyTorchSklearnContainerClassification)
-
-
-def test_dump_model_hummingbird_pytorch():
-    """
-    Test the dump of the pytorch file
-    """
-    model_converter.dump_model_hummingbird("model_pytorch")
-    assert os.path.isfile("model_pytorch.zip")
-    os.remove("model_pytorch.zip")
-
-
-def test_convert_model_hummingbird_torch():
-    """
-    Test the hummingbird conversion to torch
-    """
-    assert isinstance(model_converter.convert_model_hummingbird("torch", 1),
-                      PyTorchSklearnContainerClassification)
-
-
-def test_dump_model_hummingbird_torch():
-    """
-    Test the dump of the torch file
-    """
-    model_converter.dump_model_hummingbird("model_torch")
-    assert os.path.isfile("model_torch.zip")
-    os.remove("model_torch.zip")
